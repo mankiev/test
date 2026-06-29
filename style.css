@@ -224,23 +224,28 @@
  }
 
  .content {
+  position: relative;
   display: flex;
-  justify-self: center;
   flex-direction: column;
+  max-width: 1600px;
+  justify-content: center;
+  align-items: center;
+ }
+ 
+ .content-banner::after {
+ content: '';
+ width: 790px;
+ height: 697px;
+ position: absolute;
+ background-image: url('./img/content-banner.png');
+ background-repeat: no-repeat;
+ left: 250px;
+ top: 0;
+ z-index: -1
  }
 
- .content-banner {
-  width: 790px;
-  height: 697px;
- }
- 
- 
   .content-logo{
-  align-self: center;
-  height: 78px;
-  width: 846px;
-  position: relative;
-  top: -500px;
+  margin-top: 220px;
   font-family: 'Montserrat';
   font-weight: 400;
   font-size: 70px;
@@ -249,13 +254,11 @@
  
  .cards-list {
   width: 1110px;
-  height: 1191px;
+  margin-top: 110px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 45px;
-  position: relative;
-  top: -370px;
  }
  
  .cards-item {
