@@ -224,24 +224,20 @@
  }
 
  .content {
-  position: relative;
   display: flex;
   flex-direction: column;
-  max-width: 1600px;
   justify-content: center;
   align-items: center;
  }
  
- .content-banner::after {
- content: '';
+ .content-banner {
  width: 790px;
  height: 697px;
  position: absolute;
+ top: 0;
+ z-index: -1;
  background-image: url('./img/content-banner.png');
  background-repeat: no-repeat;
- left: 250px;
- top: 0;
- z-index: -1
  }
 
   .content-logo{
