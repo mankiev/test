@@ -236,6 +236,7 @@
  position: absolute;
  top: 0;
  z-index: -1;
+ transform: translateX(-160px);
  background-image: url('./img/content-banner.png');
  background-repeat: no-repeat;
  }
