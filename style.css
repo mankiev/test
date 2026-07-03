@@ -15,7 +15,6 @@
 }
 
 .content {
-  position: relative;
   display: flex;
   flex-direction: column;
   max-width: 1600px;
@@ -23,20 +22,21 @@
   align-items: center;
 }
 
-.content-banner::after {
-  content: '';
-  width: 790px;
-  height: 697px;
+.content-banner {
+  max-width: 790px;
+  max-height: 697px;
   position: absolute;
-  background-image: url('./img/content-banner.png');
-  background-repeat: no-repeat;
-  left: 250px;
   top: 0;
-  z-index: -1
+  z-index: -1;
+  transform: translateX(-160px);
+  background-repeat: no-repeat;
 }
 
 .content-logo{
+  max-width: 846px;
+  max-height: 78px;
   margin-top: 220px;
+  margin-bottom: 0px;
   font-family: 'Montserrat';
   font-weight: 400;
   font-size: 70px;
