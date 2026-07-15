@@ -227,13 +227,12 @@ svg * {
 .content {
   display: flex;
   flex-direction: column;
-  max-width: 1600px;
   justify-content: center;
   align-items: center;
 }
  
 .content__banner {
-  background-image: url(./img/content-banner.png);
+  background-image: url(./img/dandelions-bg.png);
   background-repeat: no-repeat;
 }
 
