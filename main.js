@@ -1,18 +1,18 @@
 const cards  = document.querySelectorAll('.card')
-const changeColorCard = document.querySelector('#change-color-card')
+const changeCardColor = document.querySelector('#change-card-color')
 const yellowColorHash = '#ffff00'
 
 const card = document.querySelector('.card')
-const changeColorFirstCard = document.querySelector('#change-color-first-card')
+const changeFirstCardColor = document.querySelector('#change-first-card-color')
 const blueColorHash = '#0000ff'
 
-changeColorCard.addEventListener('click', () => {
+changeCardColor.addEventListener('click', () => {
   cards.forEach(wsw => {
     wsw.style.backgroundColor = yellowColorHash
   })
 })
 
-changeColorFirstCard.addEventListener('click', () => {
+changeFirstCardColor.addEventListener('click', () => {
   card.style.backgroundColor = blueColorHash
 })  
 
@@ -41,17 +41,13 @@ function outputConsoleLog(message) {
 
 // Получить данные заголовка страницы и вывести их в консоль
 
-const getTitle = document.getElementById('get-title');
-getTitle.addEventListener('mouseover', () => {
-  console.log(getTitle.textContent);
+const logTitle = document.getElementById('log-title');
+logTitle.addEventListener('mouseover', () => {
+  console.log(logTitle.textContent);
 });
 
 // Меняем цвет кнопки
 
-const buttonRed = '#ff0000';
-const buttonGreen = '#00ff00';
-
-const changeColorButton = document.querySelector('#change-color-button');
-changeColorButton.addEventListener('click', () => {changeColorButton.classList.toggle('active'),
-  console.log(changeColorButton.classList.contains('active'))});
-
+const changeButtonColor = document.querySelector('#change-button-color');
+changeButtonColor.addEventListener('click', () => {changeButtonColor.classList.toggle('active'),
+  console.log(changeButtonColor.classList.contains('active'))});
