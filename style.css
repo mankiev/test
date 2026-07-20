@@ -236,6 +236,11 @@ svg * {
   background-repeat: no-repeat;
 }
 
+.active {
+  background-color: #0000ff;
+  color: #ffffff;
+}
+
 .title {
   max-width: 846px;
   max-height: 78px;
