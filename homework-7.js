@@ -26,7 +26,7 @@ const product = 'Помидоры';
 const price = 5;
 const cash = +prompt('Сколько кэша брат?');
 
-function buy (budjet) {
+function buyProduct (budjet) {
   if (budjet >= price) {
     console.log(`${product} приобретен. Спасибо за покупку!.`);
   }
@@ -35,4 +35,4 @@ function buy (budjet) {
   }
 }
 
-buy (cash);
+buyProduct (cash);
