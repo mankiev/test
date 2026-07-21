@@ -6,12 +6,12 @@ function weather (city, temperature) {
 weather('Nazran', '35°C');
 
 // Скорость света
-const lightSpeed = 299792458;
-function answerSpeed (speed) {
-  if (speed > lightSpeed) {
+const LIGHT_SPEED = 299792458;
+function checkSpeed (speed) {
+  if (speed > LIGHT_SPEED) {
     console.log('The speed is greater than the speed of light.');
   }
-  else if (speed < lightSpeed) {
+  else if (speed < LIGHT_SPEED) {
     console.log('The speed is less than the speed of light.');
   }
   else {
@@ -19,14 +19,14 @@ function answerSpeed (speed) {
   }
 }
 
-answerSpeed(+prompt('Enter the speed in m/s:'));
+checkSpeed(+prompt('Enter the speed in m/s:'));
 
 // Покупка продуктов
 const product = 'Помидоры';
 const price = 5;
 const cash = +prompt('Сколько кэша брат?');
 
-function tomato (budjet) {
+function buy (budjet) {
   if (budjet >= price) {
     console.log(`${product} приобретен. Спасибо за покупку!.`);
   }
@@ -35,4 +35,4 @@ function tomato (budjet) {
   }
 }
 
-tomato (cash);
+buy (cash);
