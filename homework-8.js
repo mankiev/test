@@ -29,11 +29,11 @@ console.log(`Владелец авто: ${car.owner.firstName}`);
 // №5 Проверка скорости авто
 function checkSpeedAuto (speed) {
   if (car.speed) {
-    console.log(car);
+    console.log(`Скорость авто: ${car.speed}`);
     return;
   } else { 
   car.speed = '200km/h';
-  console.log(`Скорость авто: ${car.speed}`);
+  console.log(`Добавлена корость авто: ${car.speed}`);
 }
 }
 
@@ -41,6 +41,60 @@ checkSpeedAuto(car)
 
 // №6 Функция выводящая два аргумента(объект и свойство объекта)
 function getObject(person, name) {
-  console.log(person, name['name'])
+  console.log(name)
 }
-getObject(person, name.firstName)
+getObject(person, person.firstName)
+
+
+//№7 Массив с названиями продуктов
+const products = ['tomato', 'potato', 'pepper', 'carrot']
+
+// №8 Массив из объектов
+const vehicle = [
+  {
+    category: car,
+    brand: 'bmw',
+    model: 'm5',
+    year: 2026
+  },
+  {
+    category: 'minivan',
+    brand: 'toyota',
+    model: 'alphard 30',
+    year: 2024
+  },
+  {
+    category: car,
+    brand: 'mercedes',
+    model: 'w222',
+    year: 2020
+  }
+]
+
+vehicle.push(
+  {
+    category: 'minivan',
+    brand: 'volswagen',
+    model: 'caravan',
+    year: 2022
+  }
+)
+
+const cars = [
+  {
+    category: car,
+    brand: 'volvo',
+    model: 's90',
+    year: 2016
+  },
+  {
+    category: car,
+    brand: 'cadillac',
+    model: 'escalade',
+    year: 2024
+  }
+]
+
+concatVehicle = [...vehicle, ...cars]
+
+console.log(concatVehicle)
