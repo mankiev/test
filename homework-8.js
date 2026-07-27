@@ -86,8 +86,8 @@ const cars = [
   {
     category: car,
     brand: 'volvo',
-    model: 's90',
-    year: 2016
+    model: 's40',
+    year: 1998
   },
   {
     category: car,
@@ -102,8 +102,8 @@ concatVehicle = [...vehicle, ...cars]
 console.log(concatVehicle)
 
 // №10 Метод map
-function isRare (vehicle) {
-  vehicle.map (v => v.year < 2000)
+function getMappedArray (vehicle) {
+return vehicle.map(v => v.year < 2000);
 }
 
-isRare(concatVehicle)
+console.log(getMappedArray(concatVehicle))
