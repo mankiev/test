@@ -80,6 +80,8 @@ vehicle.push(
   }
 )
 
+// №9 Объединение двух массивов
+
 const cars = [
   {
     category: car,
@@ -98,3 +100,10 @@ const cars = [
 concatVehicle = [...vehicle, ...cars]
 
 console.log(concatVehicle)
+
+// №10 Метод map
+function isRare (vehicle) {
+  vehicle.map (v => v.year < 2000)
+}
+
+isRare(concatVehicle)
