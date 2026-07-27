@@ -27,10 +27,10 @@ car.owner = person;
 console.log(`Владелец авто: ${car.owner.firstName}`);
 
 // №5 Проверка скорости авто
-function checkSpeedAuto (speed) {
+function checkSpeedAuto(speed) {
   if (car.speed) {
-    console.log(`Скорость авто: ${car.speed}`);
-    return;
+  console.log(`Скорость авто: ${car.speed}`);
+  return;
   } else { 
   car.speed = '200km/h';
   console.log(`Добавлена корость авто: ${car.speed}`);
