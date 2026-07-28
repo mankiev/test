@@ -27,14 +27,14 @@ car.owner = person;
 console.log(`Владелец авто: ${car.owner.firstName}`);
 
 // №5 Проверка скорости авто
-function checkSpeedAuto (speed) {
+function checkSpeedAuto(speed) {
   if (car.speed) {
     console.log(`Скорость авто: ${car.speed}`);
     return;
   } else { 
-  car.speed = '200km/h';
-  console.log(`Добавлена корость авто: ${car.speed}`);
-}
+    car.speed = '200km/h';
+    console.log(`Добавлена корость авто: ${car.speed}`);
+  }
 }
 
 checkSpeedAuto(car)
@@ -102,8 +102,7 @@ concatVehicle = [...vehicle, ...cars]
 console.log(concatVehicle)
 
 // №10 Метод map
-function isRareVehicle (vehicle) {
-  vehicle.map (v => v.year < 2000)
+function getMappedArray(vehicle) {
+return vehicle.map(v => v.year < 2000);
 }
-
-isRareVehicle(concatVehicle)
+console.log(getMappedArray(concatVehicle));
