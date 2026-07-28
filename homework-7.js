@@ -1,13 +1,13 @@
 // Температура в городе
-function weather (city, temperature) {
+function showWeather(city, temperature) {
   console.log(`The temperature in ${city} is ${temperature} degrees.`);
 }
 
-weather('Nazran', '35°C');
+showWeather('Nazran', '35°C');
 
 // Скорость света
 const LIGHT_SPEED = 299792458;
-function checkSpeed (speed) {
+function checkSpeed(speed) {
   if (speed > LIGHT_SPEED) {
     console.log('The speed is greater than the speed of light.');
   }
@@ -26,7 +26,7 @@ const product = 'Помидоры';
 const price = 5;
 const cash = +prompt('Сколько кэша брат?');
 
-function buyProduct (budjet) {
+function buyProduct(budjet) {
   if (budjet >= price) {
     console.log(`${product} приобретен. Спасибо за покупку!.`);
   }
