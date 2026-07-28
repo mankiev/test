@@ -102,8 +102,8 @@ concatVehicle = [...vehicle, ...cars]
 console.log(concatVehicle)
 
 // №10 Метод map
-function isRare (vehicle) {
+function isRareVehicle (vehicle) {
   vehicle.map (v => v.year < 2000)
 }
 
-isRare(concatVehicle)
+isRareVehicle(concatVehicle)

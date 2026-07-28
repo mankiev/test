@@ -1,9 +1,9 @@
 // Температура в городе
-function weather (city, temperature) {
+function getWeather (city, temperature) {
   console.log(`The temperature in ${city} is ${temperature} degrees.`);
 }
 
-weather('Nazran', '35°C');
+getWeather('Nazran', '35°C');
 
 // Скорость света
 const LIGHT_SPEED = 299792458;
