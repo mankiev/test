@@ -1,5 +1,5 @@
 // Температура в городе
-function showWeather (city, temperature) {
+function showWeather(city, temperature) {
   console.log(`The temperature in ${city} is ${temperature} degrees.`);
 }
 
@@ -35,4 +35,4 @@ function buyProduct(budjet) {
   }
 }
 
-buyProduct (cash);
+buyProduct(cash);
