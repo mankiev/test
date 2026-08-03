@@ -35,4 +35,4 @@ function buyProduct(budjet) {
   }
 }
 
-buyProduct (cash);
+buyProduct(cash);
