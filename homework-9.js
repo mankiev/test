@@ -39,6 +39,53 @@ console.log(reverseVehicles(vehicles))
 // № 7 Вывести в консоль массив .com
 import {users} from "./comments";
 
-const filterEmail = users.filter(user => user.email.includes('.com'));
+const filterEmail = users.filter(user => {
+  return user.email.endsWith('.com')
+});
 
 console.log(filterEmail);
+
+// № 8 Поменять id пользователей
+const changeUserPostId = users.map(user => {
+  return {
+    id: user.id <= 5 ? user.postId: 2 : user.postId: 1;
+  }
+})
+
+console.log(changeUserPostId);
+
+// № 9 Массив из id и name пользователей
+const userIdAndName = users.map(user => {
+  return {
+    id: user.id,
+    name: user.name
+  }
+})
+
+console.log(userIdAndName);
+
+// № 10 Добавляем свойство isInvalid
+const addIsInvalidProperty = users.map(user => {
+  return {
+    ...user,
+    isInvalid: user.body.length > 180 ? true : false
+  }
+});
+
+console.log(addIsInvalidProperty);
+
+// № 11 Массив почт
+const accumEmailsWithReduce = users.reduce( (acc, user) => {
+  return acc + user.email
+}, '');
+
+console.log(accumEmailsWithReduce);
+
+const accumEmailsWithMap = users.map(user => user.email);
+
+console.log(accumEmailsWithMap);
+
+// № 12 Массив к строке
+const usersToString = users.toString();
+
+console.log(usersToString);
