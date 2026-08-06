@@ -48,7 +48,7 @@ console.log(filterEmail);
 // № 8 Поменять id пользователей
 const changeUserPostId = users.map(user => {
   return {
-    id: user.id <= 5 ? user.postId: 2 : user.postId: 1;
+    postId: user.id <= 5 ? 2 : 1
   }
 })
 
@@ -57,6 +57,7 @@ console.log(changeUserPostId);
 // № 9 Массив из id и name пользователей
 const userIdAndName = users.map(user => {
   return {
+    ...user,
     id: user.id,
     name: user.name
   }
@@ -89,3 +90,5 @@ console.log(accumEmailsWithMap);
 const usersToString = users.toString();
 
 console.log(usersToString);
+
+console.log('hi')
