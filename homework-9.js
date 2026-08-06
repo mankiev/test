@@ -6,7 +6,7 @@ const filterNumber = numbers.filter (number => number > 4)
 console.log(filterNumber)
 
 
-// №3Проверка наличия сущности
+// // №3Проверка наличия сущности
 const vehicles = [
   {
     type: 'car',
@@ -29,7 +29,7 @@ const checkVehicle = vehicles.find(vehicle => vehicle.type === 'car')
 
 console.log(checkVehicle)
 
-// №4 Реверс элементов массива
+// // №4 Реверс элементов массива
 const reverseNumbers = (number) => number.reverse();
 const reverseVehicles = (vehicle) => vehicle.reverse();
 
@@ -37,7 +37,7 @@ console.log(reverseNumbers(numbers))
 console.log(reverseVehicles(vehicles))
 
 // № 7 Вывести в консоль массив .com
-import {users} from "./comments";
+import { users } from "./comments.js";
 
 const filterEmail = users.filter(user => {
   return user.email.endsWith('.com')
@@ -45,7 +45,7 @@ const filterEmail = users.filter(user => {
 
 console.log(filterEmail);
 
-// № 8 Поменять id пользователей
+// // № 8 Поменять id пользователей
 const changeUserPostId = users.map(user => {
   return {
     postId: user.id <= 5 ? 2 : 1
@@ -54,10 +54,9 @@ const changeUserPostId = users.map(user => {
 
 console.log(changeUserPostId);
 
-// № 9 Массив из id и name пользователей
+// // № 9 Массив из id и name пользователей
 const userIdAndName = users.map(user => {
   return {
-    ...user,
     id: user.id,
     name: user.name
   }
@@ -65,17 +64,16 @@ const userIdAndName = users.map(user => {
 
 console.log(userIdAndName);
 
-// № 10 Добавляем свойство isInvalid
+// // № 10 Добавляем свойство isInvalid
 const addIsInvalidProperty = users.map(user => {
   return {
-    ...user,
     isInvalid: user.body.length > 180 ? true : false
   }
 });
 
 console.log(addIsInvalidProperty);
 
-// № 11 Массив почт
+// // № 11 Массив почт
 const accumEmailsWithReduce = users.reduce( (acc, user) => {
   return acc + user.email
 }, '');
@@ -86,9 +84,7 @@ const accumEmailsWithMap = users.map(user => user.email);
 
 console.log(accumEmailsWithMap);
 
-// № 12 Массив к строке
+// // № 12 Массив к строке
 const usersToString = users.toString();
 
 console.log(usersToString);
-
-console.log('hi')
