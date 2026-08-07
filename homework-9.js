@@ -1,9 +1,11 @@
+import { users } from "./comments.js";
+
 // №2 Фильтрация чисел от 5
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-const filterNumber = numbers.filter (number => number > 4)
+const filterNumber = numbers.filter (number => number > 4);
 
-console.log(filterNumber)
+console.log(filterNumber);
 
 
 // // №3Проверка наличия сущности
@@ -23,22 +25,20 @@ const vehicles = [
     model: 'elysion',
     year: '2005'
   }
-]
+];
 
-const checkVehicle = vehicles.find(vehicle => vehicle.type === 'car')
+const checkVehicle = vehicles.find(vehicle => vehicle.type === 'car');
 
-console.log(checkVehicle)
+console.log(checkVehicle);
 
 // // №4 Реверс элементов массива
 const reverseNumbers = (number) => number.reverse();
 const reverseVehicles = (vehicle) => vehicle.reverse();
 
-console.log(reverseNumbers(numbers))
-console.log(reverseVehicles(vehicles))
+console.log(reverseNumbers(numbers));
+console.log(reverseVehicles(vehicles));
 
 // № 7 Вывести в консоль массив .com
-import { users } from "./comments.js";
-
 const filterEmail = users.filter(user => {
   return user.email.endsWith('.com')
 });
@@ -65,13 +65,13 @@ const userIdAndName = users.map(user => {
 console.log(userIdAndName);
 
 // // № 10 Добавляем свойство isInvalid
-const addIsInvalidProperty = users.map(user => {
+const isInvalidProperty = users.map(user => {
   return {
     isInvalid: user.body.length > 180 ? true : false
   }
 });
 
-console.log(addIsInvalidProperty);
+console.log(isInvalidProperty);
 
 // // № 11 Массив почт
 const accumEmailsWithReduce = users.reduce( (acc, user) => {
