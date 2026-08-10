@@ -64,14 +64,14 @@ const userIdAndName = users.map(user => {
 
 console.log(userIdAndName);
 
-// // № 10 Добавляем свойство isInvalid
-const isInvalidProperty = users.map(user => {
+// // № 10 Добавляем свойство Invalid
+const InvalidProperty = users.map(user => {
   return {
-    isInvalid: user.body.length > 180 ? true : false
+    Invalid: user.body.length > 180 ? true : false
   }
 });
 
-console.log(isInvalidProperty);
+console.log(InvalidProperty);
 
 // // № 11 Массив почт
 const accumEmailsWithReduce = users.reduce( (acc, user) => {
