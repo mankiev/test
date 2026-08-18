@@ -17,41 +17,43 @@
       <button id="output-console">Вывести сообщение в консоль</button>
       <button id="change-button-color">Изменить цвет кнопки</button>
       <ul class="products clear-list">
-        <li class="products__item card">
-          <img src="./img/moisturizing-mousse.png" alt="Moisturizing mousse" class="card__image">
-          <div class="card__category">
-            для нормальной кожи
-          </div>
-          <h2 class="card__name">
-            Увлажняющий мусс
-          </h2>
-          <p class="card__description">
-            Глубоко увлажняют кожу лица, оставляя её мягкой и гладкой.
-          </p>
-          <div class="card__structure structure">
-            Состав:
-            <ul class="structure__list">
-              <li>
-                активные натуральные комплексы
-              </li>
-              <li>
-                витамины С, А, РР, В И Е
-              </li>
-              <li>
-                солнцезащитные компоненты
-              </li>
-            </ul>
-          </div>
-          <div class="card__price">
-            <b>
-              Цена
-            </b>
-            <span>
-              2750 ₽
-            </span>
-          </div>
-        </li>
-        <li class="products__item card">
+        <template id="product-list">
+          <li class="products__item card">
+            <img src="./img/moisturizing-mousse.png" alt="Moisturizing mousse" class="card__image">
+            <div class="card__category">
+          
+            </div>
+            <h2 class="card__name">
+          
+            </h2>
+            <p class="card__description">
+          
+            </p>
+            <div class="card__structure structure">
+          
+              <ul class="structure__list">
+                <li>
+          
+                </li>
+                <li>
+          
+                </li>
+                <li>
+          
+                </li>
+              </ul>
+            </div>
+            <div class="card__price">
+              <b>
+                Цена
+              </b>
+              <span>
+                2750 ₽
+              </span>
+            </div>
+          </li>
+        </template>
+        <!-- <li class="products__item card">
           <img src="./img/moisturizing-mask.png" alt="Moisturizing mask" class="card__image">
           <div class="card__category">
             для нормальной кожи
@@ -186,7 +188,7 @@
               7520 ₽
             </span>
           </div>
-        </li>
+        </li> -->
       </ul>
     </div>
   </main>
@@ -194,5 +196,6 @@
   <script src="./homework-7.js"></script>
   <script src="./homework-8.js"></script>
   <script src="./homework-9.js" type="module"></script>
+  <script src="./homework-10.js" type="module"></script>
 </body>
 </html>
