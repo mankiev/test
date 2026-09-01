@@ -23,21 +23,16 @@ const keyAndName = productCard.reduce ((acc, card) => {
   return acc
 }, []);
 
-const showProductCards = (card) => {
-  if(card === 1) {
-    
-  } else if (card === 2) {
-    
-  } else if (card === 3) {
-    
-  } else if (card === 4) {
-    
-  } else if (card === 5) {
-    
+const getCardsAmount = () => {
+  const amount = Number(prompt("Сколько карточек отобразить? От 1 до 5"))
+  
+  if (amount >= 1 && amount <= 5) {
+    return amount
   }
+  
+  return ('Введите значение от 1 до 5')
 }
 
-showProductCards(+prompt("Сколько карточек отобразить? От 1 до 5"))
+amount = getCardsAmount()
 
-//Раньше было достаточно просмотреть лекцию для выполнением ДЗ, теперь даже после дополнительного
-//изучения материала я не знаю как выполнить задания. Я застрял на этом задании и никак не могу выбраться.
+let cards = productCard.slice(0, amount)
