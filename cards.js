@@ -13,7 +13,7 @@ export const productCard = [
   {
     cardImage: './img/moisturizing-mask.png',
     cardCategory: 'для нормальной кожи',
-    cardName: 'Увлажняющий маска',
+    cardName: 'Увлажняющая маска',
     cardDescription: 'Способствует удерживанию влаги в верхних слоях кожи.',
     cardStructure: 'Состав:',
     structureList: ['активные натуральные комплексы',
