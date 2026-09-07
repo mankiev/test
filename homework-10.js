@@ -1,24 +1,31 @@
-import { productCard } from './product-cards.js'
+import { productCard } from './cards.js'
 
-const productList = document.getElementById('product-list')
-const products = document.querySelector('.products')
+const productList = document.getElementById('product-list');
+const products = document.querySelector('.products');
 
-productCard.forEach(product => {
-  const productCopy = productList.content.cloneNode(true)
-  productCopy.querySelector('.card__image').src = product.cardImage
-  productCopy.querySelector('.card__category').textContent = product.cardCategory
-  productCopy.querySelector('.card__name').textContent = product.cardName
-  productCopy.querySelector('.card__description').textContent = product.cardDescription
-  productCopy.querySelector('.card__structure').textContent = product.cardStructure
-  productCopy.querySelector('.structure__list').textContent = product.structureList
-  productCopy.querySelector('.card__price').textContent = product.cardPrice
-  products.appendChild(productCopy)
+const renderCards = (cards) => {
+  cards.forEach(product => {
+  const productCopy = productList.content.cloneNode(true);
+  productCopy.querySelector('.card__image').src = product.cardImage;
+  productCopy.querySelector('.card__category').textContent = product.cardCategory;
+  productCopy.querySelector('.card__name').textContent = product.cardName;
+  productCopy.querySelector('.card__description').textContent = product.cardDescription;
+  productCopy.querySelector('.card__structure-title').textContent = product.cardStructure;
+  productCopy.querySelectorAll('.structure__list li').forEach((li, index) => {
+    li.textContent = product.structureList[index];
+    return li
+  });
+  productCopy.querySelector('.card__price b').textContent = product.cardPrice[0];
+  productCopy.querySelector('.card__price span').textContent =
+  `${product.cardPrice[1]} ${product.cardPrice[2]}`;
+  products.appendChild(productCopy);
 })
-  
-const keyAndName = productCard.reduce ((acc, card) => {
+};
+
+const productNamesAndDescription = productCard.reduce ((acc, card) => {
   acc.push({
-  [productCard.cardName] : productCard.cardDescription
-  })
+  [card.cardName] : card.cardDescription
+  });
   
   return acc
 }, []);
@@ -26,13 +33,14 @@ const keyAndName = productCard.reduce ((acc, card) => {
 const getCardsAmount = () => {
   const amount = Number(prompt("Сколько карточек отобразить? От 1 до 5"))
   
-  if (amount >= 1 && amount <= 5) {
-    return amount
-  }
+  if (Number.isInteger(amount) && amount >= 1 && amount <= 5) {
+    return amount;
+  };
   
-  return ('Введите значение от 1 до 5')
+  alert('Введите значение от 1 до 5');
+  return 0;
 }
 
-amount = getCardsAmount()
+const amount = getCardsAmount();
 
-let cards = productCard.slice(0, amount)
+renderCards(productCard.slice(0, amount));
