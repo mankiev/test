@@ -5,30 +5,35 @@ const products = document.querySelector('.products');
 
 const renderCards = (cards) => {
   cards.forEach(product => {
-  const productCopy = productList.content.cloneNode(true);
-  productCopy.querySelector('.card__image').src = product.cardImage;
-  productCopy.querySelector('.card__category').textContent = product.cardCategory;
-  productCopy.querySelector('.card__name').textContent = product.cardName;
-  productCopy.querySelector('.card__description').textContent = product.cardDescription;
-  productCopy.querySelector('.card__structure-title').textContent = product.cardStructure;
-  productCopy.querySelectorAll('.structure__list li').forEach((li, index) => {
-    li.textContent = product.structureList[index];
-    return li
-  });
-  productCopy.querySelector('.card__price b').textContent = product.cardPrice[0];
-  productCopy.querySelector('.card__price span').textContent =
-  `${product.cardPrice[1]} ${product.cardPrice[2]}`;
-  products.appendChild(productCopy);
+   const productCopy = productList.content.cloneNode(true);
+   const imgCard = productCopy.querySelector('.card__image');
+    imgCard.src = `img/${product.img.name}.png`;
+    imgCard.alt = product.img.alt;
+    imgCard.width = product.img.width;
+    imgCard.height = product.img.height;
+   productCopy.querySelector('.card__category').textContent = product.category;
+   productCopy.querySelector('.card__name').textContent = product.name;
+   productCopy.querySelector('.card__description').textContent = product.description;
+   const compoundList = productCopy.querySelector('.compound__list')
+   product.compound.forEach(compound => {
+    const li = document.createElement('li');
+    li.className = 'compound__item';
+    li.textContent = compound;
+    compoundList.appendChild(li);
+   });
+   products.appendChild(productCopy)
 })
 };
 
-const productNamesAndDescription = productCard.reduce ((acc, card) => {
+const productInfo = productCard.reduce ((acc, card) => {
   acc.push({
-  [card.cardName] : card.cardDescription
+    [card.name] : card.description
   });
   
   return acc
 }, []);
+
+console.log(productInfo);
 
 const getCardsAmount = () => {
   const amount = Number(prompt("Сколько карточек отобразить? От 1 до 5"))
@@ -38,9 +43,10 @@ const getCardsAmount = () => {
   };
   
   alert('Введите значение от 1 до 5');
-  return 0;
+  return getCardsAmount ();
 }
 
 const amount = getCardsAmount();
+const showCards = productCard.slice(0, amount)
 
-renderCards(productCard.slice(0, amount));
+renderCards(showCards);

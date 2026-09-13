@@ -88,7 +88,7 @@
   margin-top: 5px;
 }
 
-.card__structure {
+.card__compound {
   font-family: 'Montserrat';
   font-weight: 400;
   font-size: 13px;
@@ -97,7 +97,7 @@
   margin-bottom: 25px;
 }
 
-.structure__list {
+.compound__list {
   list-style: circle;
   padding-left: 15px;
 }
