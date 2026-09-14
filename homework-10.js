@@ -21,6 +21,8 @@ const renderCards = (cards) => {
     li.textContent = compound;
     compoundList.appendChild(li);
    });
+   productCopy.querySelector('.card__price-value').textContent =
+   `${product.price} ₽`;
    products.appendChild(productCopy)
 })
 };
