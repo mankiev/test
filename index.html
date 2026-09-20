@@ -3,23 +3,110 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Shop of Beauty</title>
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="./normalize.css">
 </head>
 <body>
   <main class="content">
+    <div class="overlay"></div>
+    <div class="modal">
+      <button class="modal__close" type="button">&times;</button>
+      <h2 class="modal__title">Регистрация</h2>
+      <form action="" class="form-register" novalidate>
+        <div class="form-register__field">
+          <label for="name">
+            Имя
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Введите имя..."
+            minlength="2"
+            required
+          >
+        </div>
+        <div class="form-register__field">
+          <label for="surname">
+            Фамилия
+          </label>
+          <input
+            type="text"
+            id="surname"
+            name="surname"
+            placeholder="Введите фамилию..."
+            required
+          >
+        </div>
+        <div class="form-register__field">
+          <label for="birthday">
+            Дата рождения
+          </label>
+          <input
+            type="date"
+            id="birthday"
+            name="birthday"
+            required
+          >
+        </div>
+        <div class="form-register__field">
+          <label for="login">
+            Логин
+          </label>
+          <input
+            type="text"
+            id="login"
+            name="login"
+            placeholder="Введите логин..."
+            required
+          >
+        </div>
+        <div class="form-register__field">
+          <label for="password">
+            Пароль
+          </label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Введите пароль..."
+            minlength="6"
+            maxlength="20"
+            required
+          >
+        </div>
+        <div class="form-register__field">
+          <label for="repeatPassword">
+            Повторите пароль
+          </label>
+          <input
+            type="password"
+            id="repeatPassword"
+            name="repeatPassword"
+            placeholder="Повторите пароль..."
+            required
+          >
+        </div>
+        <button class="form-register__save" type="submit">
+          Сохранить
+        </button>
+      </form>
+    </div>
     <div class="container content__banner">
+      <button class="modal__open" type="button">
+        Регистрация
+      </button>
       <h1 class="title content__title" id="log-title">Выбери свой продукт</h1>
       <ul class="products clear-list"></ul>
       <template id="product-list">
           <li class="products__item card">
-            <img src="" alt="" class="card__image">
+            <img class="card__image" src="" alt="">
             <div class="card__category"></div>
             <h2 class="card__name"></h2>
             <p class="card__description"></p>
             <div class="card__compound compound">
-              <h3 class="card__compound-title">Состав:</h3>
+              <h3 class="compound__title">Состав:</h3>
               <ul class="compound__list"></ul>
             </div>
             <div class="card__price">
@@ -30,6 +117,78 @@
         </template>
     </div>
   </main>
+  <footer class="footer">
+    <div class="footer__container">
+      <section class="footer__brand">
+        <h2 class="footer__title">
+          Product Cards
+        </h2>
+        <p class="footer__description">
+          У нас самые лучшие продукты для кожи!
+        </p>
+        <ul class="footer__socials">
+          <li class="footer__social">
+            <a href="https://web.telegram.org/shopofbeauty" class="footer__social-link">
+              <img src="/img/icons/telegram-icon.png" alt="telegram" class="footer__social-img">
+            </a>
+          </li>
+          <li class="footer__social">
+            <a href="" class="footer__social-link">
+              <img src="/img/icons/vk-icon.png" alt="vk" class="footer__social-img">
+            </a>
+          </li>
+        </ul>
+      </section>
+      <section class="footer__subscribe">
+        <label for="footer__input" class="footer__subscribe-title">
+          Подпишись на наши акции:
+        </label>
+        <form action="" class="footer__form">
+          <input class="footer__input"
+            type="email"
+            name="email"
+            placeholder="Введите Email..."
+            required
+          >
+          <button class="footer__button" type="submit">
+            Подписаться
+          </button>
+        </form>
+      </section>
+      <nav class="footer__nav">
+        <h2 class="footer__nav-title">
+          Быстрые ссылки
+        </h2>
+        <ul class="footer__list">
+          <li class="footer__item">
+            <a href="" class="footer__link">
+              Главная
+            </a>
+          </li>
+          <li class="footer__item">
+            <a href="" class="footer__link">
+              Магазин
+            </a>
+          </li>
+          <li class="footer__item">
+            <a href="" class="footer__link">
+              Контакты
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <section class="footer__copyright">
+      <span aria-hidden="true"></span>
+      <p class="footer__copyright-text">
+        <a href="https://www.product-cards.com" class="footer__copyright-link">
+          www.product-cards.com
+        </a>
+        ©all right reserve
+      </p>
+    </section>
+  </footer>
   <script src="./homework-10.js" type="module"></script>
+  <script src="./homework-11.js" type="module"></script>
 </body>
 </html>
