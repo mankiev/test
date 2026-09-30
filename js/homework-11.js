@@ -1,57 +1,49 @@
+import { Modal } from "./modal.js";
+import { Form } from "./form.js";
+
 // Уровень 1 подписка
+const footerForm = new Form('footer__form');
 
-const footerForm = document.querySelector(".footer__form");
-
-footerForm.addEventListener('submit', event => {
+footerForm.form.addEventListener('submit', event => {
   event.preventDefault(); //отменяем стандартную отправку
   
-  //проверяем валидность email
-  if (!footerForm.checkValidity()) {
-    footerForm.reportValidity();
+  //проверяем валидность email используя метод из класса
+  if (!footerForm.isValidity()) {
+    footerForm.form.reportValidity();
     return;
   };
   
-  const email = footerForm.elements.email.value;
+  //деструктуризация - создаем переменную и получаем значение из объекта
+  const { email } = footerForm.getValue();
   
-  console.log({ email });
+  console.log(email);
   
-  footerForm.reset();
+  footerForm.resetForm();
 });
 
 
 
 // Уровень 2 модалка
-
-const modalOpen = document.querySelector(".modal__open");
-const modalClose = document.querySelector(".modal__close");
-const modal = document.querySelector(".modal");
-const overlay = document.querySelector(".overlay");
+const modalOpen = document.querySelector('.modal__open')
+const registerModal = new Modal('modal');
 const formRegister = document.querySelector(".form-register")
 
 let user = {};
 
 //добавляем класс к элементу по клику
 modalOpen.addEventListener("click", () => {
-  modal.classList.add("modal--shown");
-  overlay.classList.add("overlay--shown");
-});
-
-//удаляем класс элемента по клику
-modalClose.addEventListener("click", () => {
-  modal.classList.remove("modal--shown");
-  overlay.classList.remove("overlay--shown");
+  registerModal.open();
 });
 
 //удаляем класс по клику вне модалального окна
-overlay.addEventListener("click", event => {
-  if (event.target === overlay) {
-    modal.classList.remove("modal--shown");
-    overlay.classList.remove("overlay--shown");
+registerModal.modal.addEventListener("click", event => {
+  if (event.target === registerModal.modal) {
+    registerModal.close();
   }
 });
 
 //слушаем отправку формы
-formRegister.addEventListener("submit", (event) => {
+formRegister.addEventListener("submit", event => {
   event.preventDefault();
   
   //проверка валидности полей
@@ -76,8 +68,7 @@ formRegister.addEventListener("submit", (event) => {
   //добавляем в объект user время создания формы
   user.createdOn = new Date();
   
-  modal.classList.remove("modal--shown");
-  overlay.classList.remove("overlay--shown");
+  registerModal.close();
   
   console.log(user);
   

@@ -9,89 +9,90 @@
 </head>
 <body>
   <main class="content">
-    <div class="overlay"></div>
-    <div class="modal">
-      <button class="modal__close" type="button">&times;</button>
-      <h2 class="modal__title">Регистрация</h2>
-      <form action="" class="form-register" novalidate>
-        <div class="form-register__field">
-          <label for="name">
-            Имя
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Введите имя..."
-            minlength="2"
-            required
-          >
-        </div>
-        <div class="form-register__field">
-          <label for="surname">
-            Фамилия
-          </label>
-          <input
-            type="text"
-            id="surname"
-            name="surname"
-            placeholder="Введите фамилию..."
-            required
-          >
-        </div>
-        <div class="form-register__field">
-          <label for="birthday">
-            Дата рождения
-          </label>
-          <input
-            type="date"
-            id="birthday"
-            name="birthday"
-            required
-          >
-        </div>
-        <div class="form-register__field">
-          <label for="login">
-            Логин
-          </label>
-          <input
-            type="text"
-            id="login"
-            name="login"
-            placeholder="Введите логин..."
-            required
-          >
-        </div>
-        <div class="form-register__field">
-          <label for="password">
-            Пароль
-          </label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Введите пароль..."
-            minlength="6"
-            maxlength="20"
-            required
-          >
-        </div>
-        <div class="form-register__field">
-          <label for="repeatPassword">
-            Повторите пароль
-          </label>
-          <input
-            type="password"
-            id="repeatPassword"
-            name="repeatPassword"
-            placeholder="Повторите пароль..."
-            required
-          >
-        </div>
-        <button class="form-register__save" type="submit">
-          Сохранить
-        </button>
-      </form>
+    <div class="modal" id="modal">
+      <div class="modal__content">
+        <button class="modal__close" type="button">&times;</button>
+        <h2 class="modal__title">Регистрация</h2>
+        <form action="" class="form-register" novalidate>
+          <div class="form-register__field">
+            <label for="name">
+              Имя
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Введите имя..."
+              minlength="2"
+              required
+            >
+          </div>
+          <div class="form-register__field">
+            <label for="surname">
+              Фамилия
+            </label>
+            <input
+              type="text"
+              id="surname"
+              name="surname"
+              placeholder="Введите фамилию..."
+              required
+            >
+          </div>
+          <div class="form-register__field">
+            <label for="birthday">
+              Дата рождения
+            </label>
+            <input
+              type="date"
+              id="birthday"
+              name="birthday"
+              required
+            >
+          </div>
+          <div class="form-register__field">
+            <label for="login">
+              Логин
+            </label>
+            <input
+              type="text"
+              id="login"
+              name="login"
+              placeholder="Введите логин..."
+              required
+            >
+          </div>
+          <div class="form-register__field">
+            <label for="password">
+              Пароль
+            </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Введите пароль..."
+              minlength="6"
+              maxlength="20"
+              required
+            >
+          </div>
+          <div class="form-register__field">
+            <label for="repeatPassword">
+              Повторите пароль
+            </label>
+            <input
+              type="password"
+              id="repeatPassword"
+              name="repeatPassword"
+              placeholder="Повторите пароль..."
+              required
+            >
+          </div>
+          <button class="form-register__save" type="submit">
+            Сохранить
+          </button>
+        </form>
+      </div>
     </div>
     <div class="container content__banner">
       <button class="modal__open" type="button">
@@ -143,7 +144,7 @@
         <label for="footer__input" class="footer__subscribe-title">
           Подпишись на наши акции:
         </label>
-        <form action="" class="footer__form">
+        <form action="" class="footer__form" id="footer__form">
           <input class="footer__input"
             type="email"
             name="email"
@@ -188,7 +189,6 @@
       </p>
     </section>
   </footer>
-  <script src="./homework-10.js" type="module"></script>
-  <script src="./homework-11.js" type="module"></script>
+  <script src="/js/main.js" type="module"></script>
 </body>
 </html>
