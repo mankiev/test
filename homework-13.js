@@ -98,10 +98,6 @@ class Juice extends Drink {
   }
 };
 
-const cappuccino = new Coffee('Капучино', '150 мл.', 50, 20, 70, 5, 'Арабика', 'Взбитое молоко');
-const blackTea = new Tea('Черный чай', '200 мл.', 40, 20, 90, 3, 'Цейлонский');
-const orangeJuice = new Juice('Апельсиновый сок', '300 мл.', 60, 20, 10, 6, 'Апельсины');
-
 class Cafe {
   constructor(name, location) {
     this.name = name;
@@ -118,8 +114,26 @@ class Cafe {
   }
   
   orderDrink(drink) {
+    if (!(drink instanceof Drink)) {
+      throw new Error('Можно заказать только напиток')
+    }
+    
     drink.serveDrink()
   }
-}
+};
 
-const cafe = new Cafe('Портефино', 'г. Назрань, ул. Московская, д. 39.')
+const cappuccino = new Coffee('Капучино', '150 мл.', 50, 20, 70, 5, 'Арабика', 'Взбитое молоко');
+const blackTea = new Tea('Черный чай', '200 мл.', 40, 20, 90, 3, 'Цейлонский');
+const orangeJuice = new Juice('Апельсиновый сок', '300 мл.', 60, 20, 10, 6, 'Апельсины');
+const cafe = new Cafe('Портефино', 'г. Назрань, ул. Московская, д. 39.');
+const drinks = [cappuccino, blackTea, orangeJuice];
+
+console.log(cafe.getInfo())
+
+drinks.forEach(drink => {
+  console.log(drink.getInfo())
+})
+
+cafe.orderDrink(cappuccino);
+cafe.orderDrink(blackTea);
+cafe.orderDrink(orangeJuice);
