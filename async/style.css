@@ -1,0 +1,117 @@
+@keyframes fadeInCard {
+  from {
+    opacity: 0;
+    transform: translateY(15px); /* карточка слегка выплывает снизу */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: #f4f6f9;
+  color: #333;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 0 20px;
+  line-height: 1.5;
+}
+
+button {
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+.get-all-users {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.get-all-users:hover {
+  background-color: #2563eb;
+}
+
+.delete-all-users {
+  background-color: #ef4444;
+  color: white;
+}
+
+.delete-all-users:hover {
+  background-color: #dc2626;
+}
+
+#info-text {
+  font-size: 15px;
+  color: #64748b;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
+.users-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.users-item {
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s;
+  animation: fadeInCard 0.5s ease forwards;
+}
+
+.users-item:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+}
+
+.users-item p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #475569;
+}
+
+.users-item p:nth-child(3) {
+  font-weight: 600;
+  color: #1e293b;
+  font-size: 16px;
+}
+
+.delete-user {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  color: #94a3b8;
+  font-size: 18px;
+  font-weight: bold;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.delete-user:hover {
+  background-color: #fee2e2;
+  color: #ef4444;
+}
