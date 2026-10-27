@@ -1,11 +1,11 @@
 const infoText = document.getElementById('info-text');
 const usersList = document.querySelector('.users-list');
-const deleteAllUsers = document.querySelector('.delete-all-users');
-deleteAllUsers.textContent = 'Удалить всех пользователей';
-const getAllUsers = document.querySelector('.get-all-users');
-getAllUsers.textContent = 'Получить всех пользователей';
+const deleteAllUsersBtn = document.querySelector('.delete-all-users');
+deleteAllUsersBtn.textContent = 'Удалить всех пользователей';
+const getAllUsersBtn = document.querySelector('.get-all-users');
+getAllUsersBtn.textContent = 'Получить всех пользователей';
 
-async function fetchUsers() {
+async function getUsers() {
   const response = await fetch("./async.json");
   if (!response.ok) {
     throw new Error(`HTTP error: ${response.status}`)
@@ -14,15 +14,15 @@ async function fetchUsers() {
 }
 
 // 1. Загрузка данных и сохранение в localStorage, если их там нет
-async function userData() {
+async function loadUsers() {
   try {
     const savedUsers = localStorage.getItem("users")
     
-    if(!savedUsers) {
+    if (!savedUsers) {
       infoText.textContent = 'Данные загружаются';
       await new Promise(resolve => {setTimeout(resolve, 1000)});
       
-      const users = await fetchUsers()
+      const users = await getUsers()
       localStorage.setItem("users", JSON.stringify(users));
       infoText.textContent = '';
     };
@@ -37,7 +37,7 @@ function renderUsers() {
     const users = JSON.parse(localStorage.getItem('users') || "[]");
     usersList.innerHTML = '';
     
-    if(users.length === 0) {
+    if (users.length === 0) {
       infoText.textContent = "Список пользователей пуст!";
       return;
     } else {
@@ -46,51 +46,50 @@ function renderUsers() {
     
     // Создаем кнопку для каждой карточки
     users.forEach(user => {
-      const buttonDeleteUser = document.createElement('button');
-      buttonDeleteUser.className = 'delete-user';
-      buttonDeleteUser.textContent = 'х';
+      const li = document.createElement("li");
+      li.className = "users-item"
       
+      const deleteUserBtn = document.createElement('button');
+      deleteUserBtn.className = 'delete-user';
+      deleteUserBtn.textContent = 'х';
       // Удаление конкретного пользователя
-      buttonDeleteUser.addEventListener('click', () => {
+      deleteUserBtn.addEventListener('click', () => {
         const currentUsers = JSON.parse(localStorage.getItem('users') || "[]");
         const upgradeUsers = currentUsers.filter(u => u.id !== user.id); // Сравниваем id объекта из слушателя с id объекта из хранилища
         localStorage.setItem('users', JSON.stringify(upgradeUsers));
         renderUsers()
       })
-      const li = document.createElement('li');
-      li.className = 'users-item';
-      const p1 = document.createElement('p');
-      const p2 = document.createElement('p');
-      const p3 = document.createElement('p');
-      const p4 = document.createElement('p');
-      const p5 = document.createElement('p');
-      p1.textContent = (`ID: ${user.id}`);
-      p2.textContent = (`Имя: ${user.name}`);
-      p3.textContent = (`Фамилия: ${user.surname}`);
-      p4.textContent = (`Возраст: ${user.age}`);
-      p5.textContent = (`Email: ${user.email}`);
-      li.append(buttonDeleteUser, p1, p2, p3, p4, p5);
-      usersList.append(li);
+      li.append(deleteUserBtn)
+      
+      for(const key in user) {
+        if (key === "id") continue;
+        
+        const p = document.createElement("p");
+        p.textContent = `${key}: ${user[key]}`
+        li.append(p);
+      }
+      
+      usersList.append(li)
     });
 }
 
 // 3. Глобальные обработчики событий (вешаются один раз)
 
-deleteAllUsers.addEventListener('click', () => {
+deleteAllUsersBtn.addEventListener('click', () => {
   const currentUsers = JSON.parse(localStorage.getItem('users') || "[]");
-  if(currentUsers.length === 0) {
+  if (currentUsers.length === 0) {
     infoText.textContent = 'Пользователи уже удалены!'
     return;
   }
-  usersList.innerHTML = '';
-  infoText.textContent = 'Пользователи удалены!'
+  
   localStorage.setItem("users", JSON.stringify([]))
+  renderUsers()
   }
 );
    
-getAllUsers.addEventListener('click', async () => {
+getAllUsersBtn.addEventListener('click', async () => {
   try {
-    const originalUsers = await fetchUsers()
+    const originalUsers = await getUsers()
     const currentUsers = JSON.parse(localStorage.getItem('users') || "[]");
     if (originalUsers.length === currentUsers.length) {
       infoText.textContent = "Все пользователи уже отображены!";
@@ -108,7 +107,7 @@ getAllUsers.addEventListener('click', async () => {
 // 4. Функция инициализации
 async function init() {
   usersList.innerHTML = '';
-  await userData();
+  await loadUsers();
   renderUsers();
 }
 

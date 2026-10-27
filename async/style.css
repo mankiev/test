@@ -88,7 +88,7 @@ button:active {
   color: #475569;
 }
 
-.users-item p:nth-child(3) {
+.users-item p:nth-child(2) {
   font-weight: 600;
   color: #1e293b;
   font-size: 16px;
