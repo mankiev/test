@@ -4,11 +4,12 @@ const deleteAllUsersBtn = document.querySelector('.delete-all-users');
 deleteAllUsersBtn.textContent = 'Удалить всех пользователей';
 const getAllUsersBtn = document.querySelector('.get-all-users');
 getAllUsersBtn.textContent = 'Получить всех пользователей';
+const userTemplate = document.querySelector(".user-template");
 
 async function getUsers() {
   const response = await fetch("./async.json");
   if (!response.ok) {
-    throw new Error(`HTTP error: ${response.status}`)
+    throw new Error(`HTTP error: ${response.status}`);
   };
   return response.json();
 }
@@ -26,15 +27,14 @@ async function loadUsers() {
       localStorage.setItem("users", JSON.stringify(users));
       infoText.textContent = '';
     };
-  } catch(error) {
+  } catch (error) {
     infoText.textContent = "Ошибка при загрузке данных";
     console.error(error);
   }
 }
 
 // 2. Отрисовка пользователей из localStorage
-function renderUsers() {
-    const users = JSON.parse(localStorage.getItem('users') || "[]");
+function renderUsers(users) {
     usersList.innerHTML = '';
     
     if (users.length === 0) {
@@ -46,22 +46,19 @@ function renderUsers() {
     
     // Создаем кнопку для каждой карточки
     users.forEach(user => {
-      const li = document.createElement("li");
-      li.className = "users-item"
-      
-      const deleteUserBtn = document.createElement('button');
-      deleteUserBtn.className = 'delete-user';
-      deleteUserBtn.textContent = 'х';
+      const userElement = userTemplate.content.cloneNode(true);
+      const deleteUserBtn = userElement.querySelector(".delete-user");
       // Удаление конкретного пользователя
       deleteUserBtn.addEventListener('click', () => {
         const currentUsers = JSON.parse(localStorage.getItem('users') || "[]");
         const upgradeUsers = currentUsers.filter(u => u.id !== user.id); // Сравниваем id объекта из слушателя с id объекта из хранилища
         localStorage.setItem('users', JSON.stringify(upgradeUsers));
-        renderUsers()
-      })
-      li.append(deleteUserBtn)
+        renderUsers(upgradeUsers)
+      });
       
-      for(const key in user) {
+      const li = userElement.querySelector(".users-item");
+      
+      for (const key in user) {
         if (key === "id") continue;
         
         const p = document.createElement("p");
@@ -82,8 +79,8 @@ deleteAllUsersBtn.addEventListener('click', () => {
     return;
   }
   
-  localStorage.setItem("users", JSON.stringify([]))
-  renderUsers()
+  localStorage.setItem("users", JSON.stringify([]));
+  renderUsers([])
   }
 );
    
@@ -97,8 +94,8 @@ getAllUsersBtn.addEventListener('click', async () => {
     };
     
     localStorage.setItem('users', JSON.stringify(originalUsers));
-    renderUsers();
-  } catch(error) {
+    renderUsers(originalUsers);
+  } catch (error) {
     infoText.textContent = "Ошибка при загрузке данных";
     console.error(error);
   }
@@ -108,7 +105,9 @@ getAllUsersBtn.addEventListener('click', async () => {
 async function init() {
   usersList.innerHTML = '';
   await loadUsers();
-  renderUsers();
+  
+  const users = JSON.parse(localStorage.getItem('users') || "[]");
+  renderUsers(users);
 }
 
 init()
