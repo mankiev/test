@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Islam",
+    "surname": "Mankiev",
+    "age": 32,
+    "email": "test1@yandex.ru"
+  },
+  {
+    "id": 2,
+    "name": "Ali",
+    "surname": "Merzhoev",
+    "age": 22,
+    "email": "test2@yandex.ru"
+  },
+  {
+    "id": 3,
+    "name": "Musa",
+    "surname": "Elmurziev",
+    "age": 18,
+    "email": "test3@yandex.ru"
+  }
+]
